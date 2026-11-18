@@ -1,12 +1,12 @@
-Create an AI Coding Models ranking for 20 best models for software coding, reviews, debugging, especially for big project like Percona Server for MySQL.
+Create an AI Coding Models ranking for 25 best models for software coding, reviews, debugging, especially for big project like Percona Server for MySQL.
 Include OpenRouter prices but ignore pricing in rating. Give each model rating from 0.0 to 10.0 and sort by rating.
 Use and show results from SWE-bench, LiveCodeBench, Terminal-Bench, DeepSWE, FrontierCode, CursorBench and other SWE benchmarks if avail for most models.
 Select only the strongest version of each model.
 Prepare result for Slack.
-Update of the November 13, 2026 ranking: extend it to the top 20, scan for new models (check also new GPT and Qwen releases).
+Update of the November 13, 2026 ranking: extend it to the top 25, scan for new models (check also new GPT and Qwen releases).
 
 
-*AI Coding Models — Top 20 | November 18, 2026*
+*AI Coding Models — Top 25 | November 18, 2026*
 
 *Focus:* Large software projects such as Percona Server for MySQL — C/C++ development, debugging, code review, refactoring, and autonomous software engineering.
 
@@ -37,6 +37,11 @@ Models are ranked by estimated coding quality (0–10). *Pricing has zero influe
 18  MiMo-V2.6-Pro             8.2   71.9   31.3      -   45.4‡     -      -    0.44   0.87
 19  Muse Spark 1.3            8.1   75.4   24.8      -      -   41.6   25.8    1.25   4.25
 20  Muse Ember                8.1      -   39.4   27.2      -      -      -    0.10   0.50
+21  MiniMax M3.1 Flash        8.0   73.7   25.3   20.8      -      -      -    0.15   0.60
+22  GLM 5.3 Flash             7.9   64.3   37.4   17.6   31.8   36.8   18.1    0.15   0.50
+23  Step 5 Preview            7.8   67.7   31.8   12.0      -      -      -    1.00   2.70
+24  Mistral Large 4           7.8   61.7*  27.8   13.6   39.4      -      -    0.70   2.10
+25  GPT-6 Luna                7.7   67.0   13.6   25.2   42.4      -      -    0.10   0.50
 ```
 
 *Legend*
@@ -50,7 +55,7 @@ Models are ranked by estimated coding quality (0–10). *Pricing has zero influe
 - $IN — OpenRouter input price, USD/1M tokens
 - $OUT — OpenRouter output price, USD/1M tokens
 - `-` — no comparable published result available
-- `*` in benchmark columns — result for a different snapshot of the same model (DeepSeek: earlier V4.1 Flash)
+- `*` in benchmark columns — result for a different snapshot of the same model (DeepSeek: earlier V4.1 Flash; Mistral Large 4: preview)
 - `†` — vendor-reported result, used only where no independent result exists (Qwen4-Max: Alibaba launch chart; Hy4: Tencent launch results as quoted by BenchLM)
 - `‡` — Artificial Analysis run of FrontierCode 1.1, used where Cognition's leaderboard has no result. Scores differ from Cognition's own runs (Opus 5.5: 57.1 vs 54.6; GPT-6 Astra: 47.0 vs 53.3)
 - `*` in price columns — Gemini 4 Carbon: introductory price, reported to end November 30, 2026 (Google has not confirmed the date), then $4 / $20; Claude Haiku 5.5: prompts up to 100K tokens, all rates ×5 above that ($0.50 / $2.50); Hy4: listed at 50% off (Tencent's standard rate is about $0.83 / $2.50)
@@ -64,15 +69,17 @@ Changes since November 13, 2026 (leaderboards checked November 18; Vals AI Termi
 - *GPT-6.2 Sol* (November 17) replaces GPT-6.1 Sol at #8 with 9.0 (details below).
 - *Qwen4-Max* (Alibaba, generally available November 16) replaces Qwen3.8 Max (0902) and moves from 8.5 to 8.6 (details below).
 - *Gemini 4 Hydrogen* moves from 9.0 to 9.1 and from #8 to #7. It now has a FrontierSWE result (53.1%, #8, close to Gemini 4 Argon's 55.0%) and CursorBench 4.0 at Extra High effort (57.8%, tied with Claude Opus 5.5 at Max).
-- Four new places (#17–#20) and three models that were not ranked before:
+- Nine new places (#17–#25) and models that were not ranked before:
   - *GPT-6.1 Terra* (#13, 8.7), OpenAI's mid-size model (October 26): 49.5% on Vals AI Terminal-Bench 4.0 (just above Qwen4-Max), 42.3% on Artificial Analysis FrontierCode 2.0 (above Gemini 4 Carbon and Claude Sonnet 5.5) and 89.2% on LiveBench 2.0 Coding. No DeepSWE, CursorBench or FrontierSWE result. There is no GPT-6.2 Terra.
   - *Claude Haiku 5.5* (#15, 8.4), Anthropic's small model (October 7): FrontierSWE 43.8% and CursorBench 48.4%, both well above Grok 4.7, but only 59.9% on DeepSWE. It costs $0.10 / $0.50, a tenth of Haiku 4.5, for prompts up to 100K tokens.
-  - *Muse Spark 1.3* (#19, 8.1) and *Muse Ember* (#20, 8.1), Meta's mid-size and small Muse models. The November 13 report left Muse Ember out because Muse Wonder already represented the family; with 20 places, smaller tiers are ranked on merit, as Claude Haiku and GPT Terra are. Muse Spark 1.3 scores 75.4% on DeepSWE and 84.4% on LiveBench 2.0 Coding but only 24.8% on Terminal-Bench 4.0; Muse Ember scores 39.4% on Terminal-Bench 4.0 and 27.2% on FrontierCode 2.0.
+  - *Muse Spark 1.3* (#19, 8.1) and *Muse Ember* (#20, 8.1), Meta's mid-size and small Muse models. The November 13 report left Muse Ember out because Muse Wonder already represented the family; with more places, smaller tiers are ranked on merit, as Claude Haiku and GPT Terra are. Muse Spark 1.3 scores 75.4% on DeepSWE and 84.4% on LiveBench 2.0 Coding but only 24.8% on Terminal-Bench 4.0; Muse Ember scores 39.4% on Terminal-Bench 4.0 and 27.2% on FrontierCode 2.0.
+  - #21–#25 are the strongest cheap and open-weight models below them: *MiniMax M3.1 Flash* (8.0; DeepSWE 73.7%, open weights, $0.15 / $0.60), *GLM 5.3 Flash* (7.9; Terminal-Bench 4.0 37.4% and a result on every benchmark in the table, but only 17.6% on FrontierCode 2.0; open weights), *Step 5 Preview* (7.8; DeepSWE 67.7%, Terminal-Bench 4.0 31.8%, open weights), *Mistral Large 4* (7.8; FrontierCode 1.1 39.4%, LiveBench 2.0 Coding 79.4%, open weights; its DeepSWE result is for the preview) and *GPT-6 Luna* (7.7; FrontierCode 1.1 42.4% but Terminal-Bench 4.0 only 13.6%, $0.10 / $0.50).
 - Hy4's FrontierCode 2.0 result (31.4%) from the November 13 comparison is now in the FC2 column.
 - Not ranked:
   - GPT-6 Astra (9.6), GPT-6.1 Sol (9.0) and Qwen3.8 Max (0902) (8.5) are superseded. GPT-6.1 Sol's DeepSWE (75.2%) and FrontierCode 1.1 (50.2%) results have no GPT-6.2 Sol counterpart yet.
   - MAI Code 2 and MAI Code 2 Flash (Microsoft, November 17) are available only in GitHub Copilot (Flash also as a limited preview in Microsoft Foundry), with no API or OpenRouter price; Microsoft says OpenRouter is "coming". No independent results yet. Microsoft reports DeepSWE 73.2%, Terminal-Bench 2.1 84.6%, SWE Atlas 43.1% and FrontierCode 1.1 52.0% for MAI Code 2 (vendor table below). Copilot bills it at $0.50 / $2.50 until May 17, 2027, then $1 / $5.
-  - MiniMax M3.1 Flash (DeepSWE 73.7%, Terminal-Bench 4.0 25.3%, $0.15 / $0.60) is estimated at 8.0, just below Muse Ember. Mistral Large 4 (FrontierCode 1.1 39.4%, Terminal-Bench 4.0 27.8%, DeepSWE 61.7% for the preview), Step 5 Preview (DeepSWE 67.7%, Terminal-Bench 4.0 31.8%) and GPT-6 Luna (FrontierCode 1.1 42.4%, Terminal-Bench 4.0 13.6%) rank lower.
+  - Inkling 2 Small (Thinking Machines, November 5; DeepSWE 72.1%, FrontierSWE 25.1%, Terminal-Bench 4.0 12.6%) and ERNIE 5.5 Flash Preview (Baidu; DeepSWE 71.2%) have no OpenRouter price.
+  - MiMo-V2.6-Flash (DeepSWE 67.9%, Terminal-Bench 4.0 24.2%, FrontierCode 2.0 21.6%, $0.14 / $0.28) is estimated at 7.6, below GPT-6 Luna.
   - Hy4 flash (Tencent, November 16, $0.035 / $0.14) scores 15.2% on Terminal-Bench 4.0.
   - Gemini 3.8 Flash stays out: Gemini 4 Hydrogen is its successor.
   - Claude Mythos 5.2 (vetted organizations only), Cognition SWE-2 and SWE-2 Flash (Cognition products only) and Muse Wonder Full (Meta's Muse Code subscription only) still have no OpenRouter price.

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Coding Models — Top 20</title>
-<meta name="description" content="Top 20 AI coding models for large C/C++ projects, rated 0–10 from DeepSWE, Terminal-Bench, FrontierCode, CursorBench and FrontierSWE results. November 18, 2026.">
+<title>AI Coding Models — Top 25</title>
+<meta name="description" content="Top 25 AI coding models for large C/C++ projects, rated 0–10 from DeepSWE, Terminal-Bench, FrontierCode, CursorBench and FrontierSWE results. November 18, 2026.">
 <style>
 :root {
   --bg: #fbfbfa; --fg: #1d1d1f; --muted: #6b6b70; --line: #e4e4e2; --card: #ffffff;
@@ -77,7 +77,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
 <body>
 <main>
 <button class="toggle" id="theme" type="button" aria-label="Toggle dark mode">◐ Theme</button>
-<h1>AI Coding Models — Top 20</h1>
+<h1>AI Coding Models — Top 25</h1>
 <p class="sub">November 18, 2026 · for large C/C++ projects such as Percona Server for MySQL: development, debugging, code review, refactoring and autonomous software engineering</p>
 
 <p>Models are rated by estimated coding quality from 0 to 10. <strong>Pricing has no influence on the rating.</strong> Only the strongest version of each model is listed; superseded versions are left out. Click a column heading to sort.</p>
@@ -115,7 +115,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <div><b>*</b> score: another snapshot of the same model · price: see notes</div>
   <div><span class="badge" style="margin:0">new</span> new in this edition</div>
 </div>
-<p class="notes">Price notes: Gemini 4 Carbon's $2 / $10 is an introductory price, reported to end November 30, 2026 (Google has not confirmed the date), then $4 / $20. Claude Haiku 5.5's price is for prompts up to 100K tokens; above that every rate is five times higher. Hy4 is listed at 50% off (standard rate about $0.83 / $2.50). GPT-6.2 prices are for up to 272K tokens of context. DeepSeek's FrontierCode 1.1 result is for the earlier V4.1 Flash.</p>
+<p class="notes">Price notes: Gemini 4 Carbon's $2 / $10 is an introductory price, reported to end November 30, 2026 (Google has not confirmed the date), then $4 / $20. Claude Haiku 5.5's price is for prompts up to 100K tokens; above that every rate is five times higher. Hy4 is listed at 50% off (standard rate about $0.83 / $2.50). GPT-6.2 prices are for up to 272K tokens of context. DeepSeek's FrontierCode 1.1 result is for the earlier V4.1 Flash, and Mistral Large 4's DeepSWE result for its preview.</p>
 
 <h2>What changed since November 13</h2>
 <ul>
@@ -123,8 +123,8 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <li><strong>GPT-6.2 Sol</strong> (Nov 17) replaces GPT-6.1 Sol at #8: better on Terminal-Bench 4.0 (60.6% vs 55.0%) and FrontierCode 2.0 (44.4% vs 40.6%), but 3 points lower on Artificial Analysis's Coding Agent Index.</li>
   <li><strong>Qwen4-Max</strong> (Alibaba, Nov 16) replaces Qwen3.8 Max: 48.5% on Terminal-Bench 4.0 (was 38.9%) and a Vals Index just above Kimi K3.1 Pro, but only 26.4% on FrontierCode 2.0. Closed weights; no Qwen4 Coder yet.</li>
   <li><strong>Gemini 4 Hydrogen</strong> rises to #7 with new results: FrontierSWE 53.1% and CursorBench 57.8% at Extra High effort.</li>
-  <li>The list grows to 20: <strong>GPT-6.1 Terra</strong>, <strong>Claude Haiku 5.5</strong>, <strong>Muse Spark 1.3</strong> and <strong>Muse Ember</strong> join. Smaller tiers are now ranked on merit.</li>
-  <li><strong>Not ranked:</strong> MAI Code 2 (Microsoft, Nov 17) is available only in GitHub Copilot, with no API price and no independent results yet. MiniMax M3.1 Flash (estimated 8.0) is just below #20. Claude Mythos 5.2, Cognition SWE-2 and Muse Wonder Full have no OpenRouter price.</li>
+  <li>The list grows to 25: <strong>GPT-6.1 Terra</strong>, <strong>Claude Haiku 5.5</strong>, <strong>Muse Spark 1.3</strong> and <strong>Muse Ember</strong> join, and #21–#25 add the strongest cheap and open-weight models: <strong>MiniMax M3.1 Flash</strong>, <strong>GLM 5.3 Flash</strong>, <strong>Step 5 Preview</strong>, <strong>Mistral Large 4</strong> and <strong>GPT-6 Luna</strong>. Smaller tiers are now ranked on merit.</li>
+  <li><strong>Not ranked:</strong> MAI Code 2 (Microsoft, Nov 17) is available only in GitHub Copilot, with no API price and no independent results yet. Inkling 2 Small, ERNIE 5.5 Flash Preview, Claude Mythos 5.2, Cognition SWE-2 and Muse Wonder Full have no OpenRouter price. MiMo-V2.6-Flash (estimated 7.6) is just below #25.</li>
 </ul>
 
 <h2>New models against their predecessors</h2>
@@ -201,6 +201,11 @@ const rows = [
   ["MiMo-V2.6-Pro", "Xiaomi", 8.2, M(71.9), M(31.3), N, M(45.4, "‡"), N, N, M(0.44), M(0.87)],
   ["Muse Spark 1.3", "Meta", 8.1, M(75.4), M(24.8), N, N, M(41.6), M(25.8), M(1.25), M(4.25), true],
   ["Muse Ember", "Meta", 8.1, N, M(39.4), M(27.2), N, N, N, M(0.10), M(0.50), true],
+  ["MiniMax M3.1 Flash", "MiniMax", 8.0, M(73.7), M(25.3), M(20.8), N, N, N, M(0.15), M(0.60), true],
+  ["GLM 5.3 Flash", "Zhipu AI", 7.9, M(64.3), M(37.4), M(17.6), M(31.8), M(36.8), M(18.1), M(0.15), M(0.50), true],
+  ["Step 5 Preview", "StepFun", 7.8, M(67.7), M(31.8), M(12.0), N, N, N, M(1.00), M(2.70), true],
+  ["Mistral Large 4", "Mistral", 7.8, M(61.7, "*"), M(27.8), M(13.6), M(39.4), N, N, M(0.70), M(2.10), true],
+  ["GPT-6 Luna", "OpenAI", 7.7, M(67.0), M(13.6), M(25.2), M(42.4), N, N, M(0.10), M(0.50), true],
 ].map((r, i) => ({
   rank: i + 1, name: r[0], vendor: r[1], rate: r[2],
   deep: r[3], tb4: r[4], fc2: r[5], fcod: r[6], curs: r[7], fswe: r[8], in: r[9], out: r[10], isNew: !!r[11],
