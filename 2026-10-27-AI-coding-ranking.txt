@@ -1,0 +1,119 @@
+Create an AI Coding Models ranking for 16 best models for software coding, reviews, debugging, especially for big project like Percona Server for MySQL.
+Include OpenRouter prices but ignore pricing in rating. Give each model rating from 0.0 to 10.0 and sort by rating.
+Use and show results from SWE-bench, LiveCodeBench, Terminal-Bench, DeepSWE, FrontierCode, CursorBench and other SWE benchmarks if avail for most models.
+Select only the strongest version of each model.
+Prepare result for Slack.
+Update of the October 16, 2026 ranking: add Kimi K3.1 Pro (replaces Kimi K3), refresh all benchmark results and prices.
+
+
+*AI Coding Models — Top 16 | October 27, 2026*
+
+*Focus:* Large software projects such as Percona Server for MySQL — C/C++ development, debugging, code review, refactoring, and autonomous software engineering.
+
+Models are ranked by estimated coding quality (0–10). *Pricing has zero influence on ratings.* Superseded model versions are excluded.
+
+*Ranking & SWE Benchmarks*
+
+```text
+ #  MODEL                    RATE  DEEP   TB4   FCOD  CURS  FSWE   $IN    $OUT
+-------------------------------------------------------------------------------
+ 1  Claude Opus 5.5           9.8  74.2  65.2  54.6  57.8  62.3   4.00   20.00
+ 2  GPT-6 Astra               9.6  74.1  59.6  53.3    -   65.5  10.00   50.00
+ 3  Gemini 4 Argon            9.4  77.9  57.6  47.5  52.9  55.0   2.00   10.00
+ 4  Claude Sonnet 5.5         9.2  70.5  64.1  52.1  55.5  61.9   2.00   10.00
+ 5  Claude Fable 5.1          9.1  67.4  58.1  50.9  51.8  56.3  10.00   50.00
+ 6  GPT-6.1 Sol               9.0  72.3  55.0  50.2    -     -    2.00   10.00
+ 7  Kimi K3.1 Pro             8.9  75.5  63.6    -     -     -    2.00   10.00
+ 8  Muse Wonder               8.9  78.8  49.5    -   50.4    -    4.00   20.00
+ 9  DeepSeek V4.1 Flash 1017  8.8  77.0  31.8  43.9* 47.7    -    0.15    0.60
+10  GLM 5.3                   8.7  70.5  38.9  40.1  42.6  30.2   0.07    1.40
+11  Gemini 3.8 Flash          8.6  73.8  19.7  41.2  39.6  19.6   0.83    4.13
+12  Qwen3.8 Max (0902)        8.5    -   34.3    -     -   17.8*  2.00    6.00
+13  Grok 4.7                  8.3  71.0  28.8  47.6  46.3  29.5   2.00    6.00
+14  MiMo-V2.6-Pro             8.2  71.9  31.3    -     -     -    0.44    0.87
+15  Step 5 Preview            8.1  67.7  31.8    -     -     -    1.00    2.70
+16  MiniMax M3.1 Flash        8.0  73.7  25.3    -     -     -    0.15    0.60
+```
+
+*Legend*
+- RATE — estimated coding quality (0–10)
+- DEEP — DeepSWE v1.1 (%)
+- TB4 — Terminal-Bench 4.0, Vals AI (%)
+- FCOD — FrontierCode (%)
+- CURS — CursorBench 4.0 (%)
+- FSWE — FrontierSWE (%)
+- $IN — OpenRouter input price, USD/1M tokens
+- $OUT — OpenRouter output price, USD/1M tokens
+- `-` — no comparable published result available
+- `*` — result for a different snapshot of the same model (Qwen: not confirmed for 0902; DeepSeek: earlier V4.1 Flash)
+
+*Methodology*
+
+Quality ratings prioritize large-repository understanding, complex debugging, code review, long-horizon engineering, and C/C++ correctness. SWE-bench, LiveCodeBench, and other SWE evaluations also inform the qualitative assessment where comparable data exists.
+
+Changes since October 16, 2026 (benchmarks and prices refreshed on October 27, 2026):
+- Kimi K3.1 Pro replaces Kimi K3 (details below).
+- DeepSeek V4.1 Flash 1017 (October 17) replaces DeepSeek V4.1 Flash: DeepSWE 74.2 → 77.0, Terminal-Bench 19.7 → 31.8, new CursorBench 47.7.
+- MiniMax M3.1 Flash (October 19) enters at #16 (DeepSWE 73.7, Terminal-Bench 25.3). Muse Spark Open drops out after Vals measured only 6.6% on Terminal-Bench 4.0.
+- New Terminal-Bench 4.0 results: Muse Wonder 49.5, Step 5 Preview 31.8; Gemini 3.8 Flash 19.2 → 19.7.
+- OpenRouter price changes: GLM 5.3, Gemini 3.8 Flash, Grok 4.7.
+- Muse Wonder Full (DeepSWE 79.0, Terminal-Bench 58.1) is stronger than Muse Wonder but is only available in Meta's Muse Code subscription, with no API or OpenRouter price, so it is not ranked.
+- GPT-6.1 Terra (October 26, Terminal-Bench 49.5) is a lower tier of GPT-6.1 than GPT-6.1 Sol, so it is not ranked.
+- October 29: added Moonshot's Kimi K3.1 Pro benchmark grid as a separate vendor-reported table, and new independent Kimi K3.1 Pro results (below). Kimi K3.1 Pro drops from 9.1 to 8.9 (#6 → #7); GPT-6.1 Sol moves up to #6.
+
+Kimi K3.1 Pro (released October 24, 2026) replaces Kimi K3. The table uses independent results only: Vals AI measured 63.6% on Terminal-Bench 4.0 (Moonshot reports 65.7% in the Claude Code harness) and DeepSWE v1.1 lists 75.5%. FrontierCode, CursorBench and FrontierSWE have not tested it yet.
+
+Independent Kimi K3.1 Pro results published October 23–27, 2026 (best configuration of each comparison model):
+
+```text
+BENCHMARK                    KIMI  OPUS  ASTRA  SONN  FABLE  SOL   NOTE
+--------------------------------------------------------------------------
+Terminal-Bench 4.0 (AA)      67.2  59.6  59.6  63.6  55.0  56.1   #1 overall
+FrontierCode 2.0 (AA)        25.4  46.4  42.4  41.7  35.7  40.6   below Grok 4.7, DeepSeek 1017, Muse Wonder
+LiveBench 2.0 Coding         81.8  96.3  93.7  94.7  97.7  96.0   #20 of 31
+Vibe Code Bench v1.1 (Vals)  84.9  90.3  89.6  92.4  90.3  88.9   same as Kimi K3 (85.0)
+SciCode (AA)                 60.8  66.9  56.5  61.0  63.1  55.8   #11
+```
+
+- OPUS = Claude Opus 5.5, ASTRA = GPT-6 Astra, SONN = Claude Sonnet 5.5, FABLE = Claude Fable 5.1, SOL = GPT-6.1 Sol (all %). AA = Artificial Analysis. FrontierCode 2.0 (AA) is a different benchmark version from the FCOD column.
+- Artificial Analysis Intelligence Index: 55, #4 overall (Opus 5.5: 58, GPT-6 Astra: 53). Its hallucination rate on AA-Omniscience fell from 53% (Kimi K3) to 44%, and it used 150M output tokens on the index run vs about 60M for GPT-6 Astra.
+- Kimi K3.1 Pro is the best model on terminal-based agentic tasks, but it is clearly behind the top models on FrontierCode 2.0 and LiveBench coding, which are closer to hard, precise code changes. It drops to 8.9, below GPT-6.1 Sol (FrontierCode 2.0 40.6, LiveBench 96.0), and stays above Muse Wonder because of its much stronger Terminal-Bench results.
+
+In Moonshot's own launch results (below) it leads SWE-Marathon (51.7% vs 46.3% for Opus 5.5), but it is weak on Terminal-Bench Science (38.1% vs 63.3% for Opus 5.5), hallucinates more than GPT-6 Astra, and is very verbose.
+
+*Moonshot-reported results (Kimi K3.1 Pro launch, vendor data)*
+
+```text
+MODEL                 TB4   SWEM  KCB3  TBSCI  ALE   OSW
+---------------------------------------------------------
+Claude Opus 5.5       66.4  46.3  58.5  63.3  42.6  81.8
+GPT-6 Astra           58.2  42.5  66.5  68.1  32.8  75.8
+Claude Fable 5.1      57.9  45.6  58.8  40.0    -   80.7
+Kimi K3.1 Pro         65.7  51.7  61.2  38.1  43.2  79.6
+DeepSeek V4.1 Flash   42.3  40.0  51.5  15.7  37.7  69.3
+GLM 5.3               41.8  42.5  45.5   8.1  26.2    -
+```
+
+- TB4 — Terminal-Bench 4.0; SWEM — SWE-Marathon; KCB3 — Kimi Code Bench 3.0 Long-horizon (Moonshot's internal benchmark); TBSCI — Terminal-Bench Science 0.1; ALE — Agents' Last Exam; OSW — OSWorld V2.1 (all %). DeepSeek is the 1017 snapshot.
+- Moonshot ran all models at maximum thinking effort and notes that Claude results may include fallbacks and GPT results may include cyberguards.
+- Vendor Terminal-Bench 4.0 scores run higher than Vals AI's for most models (DeepSeek 42.3 vs 31.8, GLM 5.3 41.8 vs 38.9, Opus 5.5 66.4 vs 65.2), so they are not mixed into the main table.
+- Non-coding results from the same grid: Kimi K3.1 Pro leads Humanity's Last Exam with tools (70.0), OfficeQA Pro v2 (64.4), GDP.pdf (34.6) and ZeroBench with tools (63.0); Opus 5.5 leads GDPval-AA v2.1 (1866 Elo) and BenchCAD with tools (96.2); Fable 5.1 leads Frontier Finance (60.8); GPT-6 Astra leads ChartoGraphy with tools (91.0).
+- These vendor results confirm Kimi K3.1 Pro's strength in long-horizon agentic coding but are not used for its rating.
+
+Ratings are estimates, not standardized benchmark composites. Benchmarks may use different agent harnesses and reasoning configurations. Prices are indicative and may change.
+
+*Sources*
+- DeepSWE: https://atlas.kevinhu.io/benchmarks/deepswe-1-1
+- Terminal-Bench: https://www.benchleader.com/benchmarks/vals_terminal_bench_4
+- FrontierCode: https://www.benchleader.com/benchmarks/frontiercode
+- FrontierSWE: https://www.benchleader.com/benchmarks/frontierswe
+- CursorBench: https://prod.cursor.com/evals
+- Other SWE benchmarks: https://www.benchleader.com/benchmarks
+- Kimi K3.1 Pro independent results: https://www.benchleader.com/benchmarks/aa_terminalbench_40, https://www.benchleader.com/benchmarks/aa_frontiercode_20, https://www.benchleader.com/benchmarks/livebench2_coding, https://www.benchleader.com/benchmarks/vals_vibe_code, https://www.benchleader.com/benchmarks/aa_scicode
+- Kimi K3.1 Pro launch results (Moonshot): https://mintcdn.com/moonshotai/jDcKnASQd0dgNqpK/assets/pics/k3-1-pro/benchmark-grid.png
+- Pricing: https://openrouter.ai/models
+
+*Recommendation for Percona Server for MySQL*
+
+Top candidates for a controlled head-to-head evaluation are *Claude Opus 5.5, GPT-6 Astra, Gemini 4 Argon, and Claude Sonnet 5.5*. Kimi K3.1 Pro is worth a trial for long-running terminal and agentic tasks, where it leads independent Terminal-Bench results, but it is weaker on precise code changes. Test them against real InnoDB concurrency issues, replication bugs, crash recovery, memory-safety problems, complex code reviews, and MTR regression tests.
+

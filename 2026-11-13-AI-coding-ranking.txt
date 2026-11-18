@@ -1,0 +1,121 @@
+Create an AI Coding Models ranking for 16 best models for software coding, reviews, debugging, especially for big project like Percona Server for MySQL.
+Include OpenRouter prices but ignore pricing in rating. Give each model rating from 0.0 to 10.0 and sort by rating.
+Use and show results from SWE-bench, LiveCodeBench, Terminal-Bench, DeepSWE, FrontierCode, CursorBench and other SWE benchmarks if avail for most models.
+Select only the strongest version of each model.
+Prepare result for Slack.
+Update of the November 10, 2026 ranking: scan for new models and remove Gemini 3.8 Flash.
+
+
+*AI Coding Models — Top 16 | November 13, 2026*
+
+*Focus:* Large software projects such as Percona Server for MySQL — C/C++ development, debugging, code review, refactoring, and autonomous software engineering.
+
+Models are ranked by estimated coding quality (0–10). *Pricing has zero influence on ratings.* Superseded model versions are excluded.
+
+*Ranking & SWE Benchmarks*
+
+```text
+ #  MODEL                    RATE   DEEP   TB4    FCOD   CURS   FSWE    $IN    $OUT
+-------------------------------------------------------------------------------------
+ 1  Claude Fable 5.2          9.9   74.3   65.2   64.0‡  60.0   69.9    8.00   40.00
+ 2  Claude Opus 5.5           9.8   74.2   65.2   54.6   57.8   62.3    4.00   20.00
+ 3  GPT-6 Astra               9.6   74.1   59.6   53.3      -   65.5   10.00   50.00
+ 4  Gemini 4 Carbon           9.6      -   63.1      -   60.4   61.2    2.00*  10.00*
+ 5  Claude Sonnet 5.5         9.2   70.5   64.1   52.1   55.5   61.9    2.00   10.00
+ 6  Gemini 4 Argon            9.2   77.9   57.6   47.5   52.9   55.0    2.00   10.00
+ 7  GPT-6.1 Sol               9.0   75.2   55.0   50.2      -      -    2.00   10.00
+ 8  Gemini 4 Hydrogen         9.0      -   54.0      -   54.3      -    1.50    7.50
+ 9  Kimi K3.1 Pro             8.9   75.5   63.6   47.1‡     -      -    2.00   10.00
+10  Muse Wonder               8.9   78.8   49.5   47.0   50.4      -    4.00   20.00
+11  DeepSeek V4.1 Flash 1017  8.8   77.0   31.8   43.9*  47.7      -    0.15    0.60
+12  GLM 5.3                   8.7   72.0   38.9   40.1   42.6   30.2    0.07    1.40
+13  Qwen3.8 Max (0902)        8.5   69.3†  34.3   43.2‡     -   17.8*   2.00    6.00
+14  Grok 4.7                  8.3   71.0   28.8   47.6   46.3   29.5    2.00    6.00
+15  Hy4                       8.3   74.9†  39.4      -      -      -    0.42*   1.25*
+16  MiMo-V2.6-Pro             8.2   71.9   31.3   45.4‡     -      -    0.44    0.87
+```
+
+*Legend*
+- RATE — estimated coding quality (0–10)
+- DEEP — DeepSWE v1.1 (%)
+- TB4 — Terminal-Bench 4.0, Vals AI (%)
+- FCOD — FrontierCode 1.1, Cognition (%)
+- CURS — CursorBench 4.0 (%)
+- FSWE — FrontierSWE, Epoch AI (%)
+- $IN — OpenRouter input price, USD/1M tokens
+- $OUT — OpenRouter output price, USD/1M tokens
+- `-` — no comparable published result available
+- `*` in benchmark columns — result for a different snapshot of the same model (Qwen: not confirmed for 0902; DeepSeek: earlier V4.1 Flash)
+- `†` — vendor-reported result, used only where no independent result exists (Qwen3.8 Max 0902: Alibaba launch table; Hy4: Tencent launch results as quoted by BenchLM)
+- `‡` — Artificial Analysis run of FrontierCode 1.1 (snapshot November 9), used where Cognition's leaderboard has no result. Scores differ from Cognition's own runs (Opus 5.5: 57.1 vs 54.6; GPT-6 Astra: 47.0 vs 53.3)
+- `*` in price columns — temporary price: Gemini 4 Carbon introductory price until November 30, 2026, then $4 / $20; Hy4 is listed at 50% off (Tencent's standard rate is about $0.83 / $2.50)
+
+*Methodology*
+
+Quality ratings prioritize large-repository understanding, complex debugging, code review, long-horizon engineering, and C/C++ correctness. SWE-bench, LiveCodeBench, and other SWE evaluations also inform the qualitative assessment where comparable data exists. The main table uses independent results; where none exists, it shows another independent run (`‡`) or a vendor-reported result (`†`).
+
+Changes since November 10, 2026 (new models scanned on November 13, 2026; results for the other models are carried over from November 10):
+- *Gemini 4 Hydrogen* (released November 12) enters at #8 (details below). It is Google's new high-efficiency Gemini 4 model and the successor to Gemini 3.8 Flash.
+- *Gemini 3.8 Flash* (8.6, #12) is removed. Gemini 4 Hydrogen replaces it: Google reports 57.0% on Terminal-Bench 4.1 for Hydrogen vs 18.2% for Gemini 3.8 Flash.
+- Claude Fable 5.2's FrontierSWE score (69.9%) is now listed on the FrontierSWE leaderboard (Epoch AI Benchmarking Hub, dated November 9), so it is no longer marked `†`. Epoch AI takes these scores from the public FrontierSWE leaderboard (frontierswe.com), as it does for Gemini 4 Carbon (61.2%).
+- No other new model released November 10–13 appears on DeepSWE, Terminal-Bench 4.0, FrontierCode, CursorBench or FrontierSWE.
+- Not ranked:
+  - Muse Ember (Meta, November 9, $0.10 / $0.50) is Meta's smallest Muse model; Muse Wonder already represents the family. It scores 39.4% on Vals AI Terminal-Bench 4.0 (same as Hy4), 27.2% on Artificial Analysis FrontierCode 2.0 (Hy4: 31.4%) and 83.7% on Vibe Code Bench v1.1, with no DeepSWE or CursorBench result. Its estimated rating (8.1) is below MiMo-V2.6-Pro (8.2).
+  - Claude Mythos 5.2 is the same model as Fable 5.2 without the cybersecurity and biology safeguards. It is available only to vetted organizations, with no public API or OpenRouter price.
+  - Cognition SWE-2 (FrontierCode 50.0%; Cognition reports DeepSWE 73.0% and Terminal-Bench 4.0 27.3%) and SWE-2 Flash (November 4) are available only in Cognition's products, with no OpenRouter price.
+  - Muse Wonder Full (DeepSWE 79.0, Terminal-Bench 58.1) is still available only in Meta's Muse Code subscription.
+  - Ripple-65B Preview (Ricursive Intelligence, November 4, open weights, $0.10 / $0.30) scores 44.3% on DeepSWE, too low for the top 16.
+
+*Gemini 4 Hydrogen* ranks #8 with 9.0, tied with GPT-6.1 Sol. It scores 54.0% on Vals AI Terminal-Bench 4.0 (#11) and 54.3% on CursorBench 4.0 (High effort, #12), ahead of Gemini 4 Argon (52.9%). On Artificial Analysis FrontierCode 2.0 it reaches 39.0% (xhigh), close to Gemini 4 Carbon (40.6%) and far ahead of Argon (25.7%) and Kimi K3.1 Pro (25.4%). Google reports an Artificial Analysis Intelligence Index of 51 at the default high effort (Argon: 50) and 54 at xhigh. Its weak spot is Terminal-Bench: it trails Argon (57.6%), Kimi K3.1 Pro (63.6%) and Claude Sonnet 5.5 (64.1%) on Vals AI Terminal-Bench 4.0, and Google's own Terminal-Bench 4.1 result (57.0%) is below Sonnet 5.5 (63.9%). It ranks below GPT-6.1 Sol because it has no DeepSWE, FrontierCode 1.1 or FrontierSWE result yet. It costs $1.50 / $7.50, flat across the full 1M-token context window ($0.075 for cached input).
+
+Independent results for models released October 28 – November 13, 2026, with established models for comparison (best configuration of each model):
+
+```text
+BENCHMARK                    FAB52  CARB  HYDR  OPUS  ASTRA  SONN  ARGON  KIMI  EMBER
+--------------------------------------------------------------------------------------
+Terminal-Bench 4.0 (AA)      61.6  65.2  54.0  59.6   59.6  63.6   57.1  67.2   40.9
+FrontierCode 2.0 (AA)        49.1  40.6  39.0  46.4   42.4  41.7   25.7  25.4   27.2
+LiveBench 2.0 Coding         79.2    -   78.5  87.1   87.5  77.2   85.7  67.8     -
+Vibe Code Bench v1.1 (Vals)  93.8  89.1  87.8  90.3   89.6  92.4   91.9  84.9   83.7
+SciCode (AA)                 67.7    -     -   66.9   56.5  61.0   61.8  60.8     -
+```
+
+- FAB52 = Claude Fable 5.2, CARB = Gemini 4 Carbon, HYDR = Gemini 4 Hydrogen, OPUS = Claude Opus 5.5, ASTRA = GPT-6 Astra, SONN = Claude Sonnet 5.5, ARGON = Gemini 4 Argon, KIMI = Kimi K3.1 Pro, EMBER = Muse Ember (all %). AA = Artificial Analysis. FrontierCode 2.0 is Cognition's newer, harder version of FrontierCode; the FCOD column is version 1.1.
+- Hydrogen: Terminal-Bench 4.0 (AA) at high effort (53.5% at xhigh), FrontierCode 2.0 and Vibe Code Bench at xhigh. Muse Ember: max effort.
+
+*Google-reported results (Gemini 4 Hydrogen model card, vendor data)*
+
+```text
+BENCHMARK                        HYDR   SONN   TERRA
+-----------------------------------------------------
+Terminal-Bench 4.1 (adjusted)    57.0   63.9      -
+Terminal-Bench Science 0.1       51.4   59.9   58.3
+SWE-sweep                        13.5    3.1    5.8
+OSWorld 2.1 (offline subset)     77.6   83.9   74.2
+AutomationBench-AA               76.1   71.8   60.2
+Agents' Last Exam v1.1           71.6   60.4   69.8
+```
+
+- HYDR = Gemini 4 Hydrogen, SONN = Claude Sonnet 5.5, TERRA = GPT-6.1 Terra (all %). Terminal-Bench 4.1 is cheating-adjusted and is a different benchmark from the Terminal-Bench 4.0 used in the main table.
+- The model card has no DeepSWE, SWE-bench, FrontierCode or LiveCodeBench results.
+
+Ratings are estimates, not standardized benchmark composites. Benchmarks may use different agent harnesses and reasoning configurations. Prices are indicative and may change. GPT-6 Astra, GPT-6.1 Sol and Gemini 4 Argon have several OpenRouter rate tiers; the table keeps the standard tier used in the October 27 report. Gemini 4 Hydrogen is listed on OpenRouter at several price points ($0.75 / $3.75, $1.50 / $7.50, $1.65 / $8.25 for EU in-region routing, $2.70 / $13.50); the table shows Google's standard price.
+
+*Sources*
+- DeepSWE: https://atlas.village.dev/benchmarks/deepswe-1-1
+- Terminal-Bench: https://www.benchleader.com/benchmarks/vals_terminal_bench_4, https://www.vals.ai/benchmarks/terminal-bench-4
+- FrontierCode: https://www.benchleader.com/benchmarks/frontiercode, https://cognition.com/blog/frontier-code-2.0, https://atlas.village.dev/benchmarks/frontiercode-1-1-main-aa
+- FrontierSWE: https://www.benchleader.com/benchmarks/frontierswe, https://epoch.ai/benchmarks/frontierswe
+- CursorBench: https://prod.cursor.com/evals
+- Other SWE benchmarks: https://www.benchleader.com/benchmarks, https://www.benchleader.com/benchmarks/aa_terminalbench_40, https://www.benchleader.com/benchmarks/aa_frontiercode_20, https://www.benchleader.com/benchmarks/livebench2_coding, https://www.benchleader.com/benchmarks/vals_vibe_code, https://www.benchleader.com/benchmarks/aa_scicode
+- Gemini 4 Hydrogen: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/, https://deepmind.google/models/model-cards/gemini-4-hydrogen/, https://the-decoder.com/googles-gemini-4-hydrogen-outscores-the-bigger-argon-just-four-weeks-after-its-launch/
+- Muse Ember: https://research.meta.ai/blog/muse-ember, https://openrouter.ai/meta/muse-ember
+- Claude Fable 5.2: https://www.anthropic.com/claude-fable-and-mythos-5-2, https://www.vals.ai/models/anthropic_claude-fable-5-2
+- Gemini 4 Carbon: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/, https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/
+- Tencent Hy4: https://www.eesel.ai/blog/tencent-hy4, https://benchlm.ai/models/hy4, https://huggingface.co/tencent/Hy4-preview
+- Qwen3.8 Max (0902) launch results (Alibaba): https://x.com/Alibaba_Qwen/status/2094968708288680276
+- Pricing: https://openrouter.ai/models, https://openrouter.ai/google/gemini-4-hydrogen
+
+*Recommendation for Percona Server for MySQL*
+
+Top candidates for a controlled head-to-head evaluation are *Claude Fable 5.2, Claude Opus 5.5, GPT-6 Astra, and Gemini 4 Carbon*. Fable 5.2 is the strongest model overall, but it costs twice as much as Opus 5.5; compare Fable 5.2 at high effort against Opus 5.5 at max effort. Gemini 4 Carbon is cheap to trial at its introductory price until November 30. Kimi K3.1 Pro remains worth a trial for long-running terminal and agentic tasks. Gemini 4 Hydrogen is a cheaper option for high-volume work such as test-failure triage and first-pass code review. Test them against real InnoDB concurrency issues, replication bugs, crash recovery, memory-safety problems, complex code reviews, and MTR regression tests.
