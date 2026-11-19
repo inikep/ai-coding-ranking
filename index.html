@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Coding Models — Top 25</title>
-<meta name="description" content="Top 25 AI coding models for large C/C++ projects, rated 0–10 from DeepSWE, Terminal-Bench, FrontierCode, CursorBench, FrontierSWE, SWE Atlas and Code Migration (C++) results. November 18, 2026.">
+<meta name="description" content="Top 25 AI coding models for large C/C++ projects, rated 0–10 from DeepSWE, Terminal-Bench, FrontierCode, CursorBench, FrontierSWE, SWE Atlas and Code Migration (C++) results. November 19, 2026.">
 <style>
 :root {
   --bg: #fbfbfa; --fg: #1d1d1f; --muted: #6b6b70; --line: #e4e4e2; --card: #ffffff;
@@ -78,7 +78,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
 <main>
 <button class="toggle" id="theme" type="button" aria-label="Toggle dark mode">◐ Theme</button>
 <h1>AI Coding Models — Top 25</h1>
-<p class="sub">November 18, 2026 · for large C/C++ projects such as Percona Server for MySQL: development, debugging, code review, refactoring and autonomous software engineering</p>
+<p class="sub">November 19, 2026 · for large C/C++ projects such as Percona Server for MySQL: development, debugging, code review, refactoring and autonomous software engineering</p>
 
 <p>Models are rated by estimated coding quality from 0 to 10. <strong>Pricing has no influence on the rating.</strong> Only the strongest version of each model is listed; superseded versions are left out. Click a column heading to sort.</p>
 
@@ -92,7 +92,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <th data-k="tb4" title="Terminal-Bench 4.0, Vals AI">TB 4.0</th>
   <th data-k="fc2" title="FrontierCode 2.0, Artificial Analysis">FC 2.0</th>
   <th data-k="fcod" title="FrontierCode 1.1, Cognition">FC 1.1</th>
-  <th data-k="curs" title="CursorBench 4.0">Cursor</th>
+  <th data-k="curs" title="CursorBench 4.1">Cursor</th>
   <th data-k="fswe" title="FrontierSWE, Epoch AI">FSWE</th>
   <th data-k="atls" title="SWE Atlas v1.1, Scale AI">Atlas</th>
   <th data-k="mcpp" title="Code Migration v1.1, Vals AI: ports into C++">C++ mig</th>
@@ -108,7 +108,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <div><b>TB 4.0</b> Terminal-Bench 4.0, Vals AI (%)</div>
   <div><b>FC 2.0</b> FrontierCode 2.0, Artificial Analysis (%)</div>
   <div><b>FC 1.1</b> FrontierCode 1.1, Cognition (%)</div>
-  <div><b>Cursor</b> CursorBench 4.0 (%)</div>
+  <div><b>Cursor</b> CursorBench 4.1 (%)</div>
   <div><b>FSWE</b> FrontierSWE, Epoch AI (%)</div>
   <div><b>Atlas</b> SWE Atlas v1.1, Scale AI (%): codebase Q&amp;A, tests and refactoring in Go, Python, TypeScript, JavaScript, C and C++ repos</div>
   <div><b>C++ mig</b> Code Migration v1.1, Vals AI (%): Python, Java, Kotlin and Rust programs ported into C++</div>
@@ -116,10 +116,11 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <div><b>–</b> no comparable published result</div>
   <div><b>†</b> vendor-reported, used only where no independent result exists</div>
   <div><b>‡</b> Artificial Analysis run of FrontierCode 1.1, where Cognition has no result</div>
+  <div><b>§</b> CursorBench 4.0 result; not on the 4.1 leaderboard yet</div>
   <div><b>*</b> score: another snapshot of the same model · price: see notes</div>
   <div><span class="badge" style="margin:0">new</span> new in this edition</div>
 </div>
-<p class="notes">Price notes: Gemini 4 Carbon's $2 / $10 is an introductory price, reported to end November 30, 2026 (Google has not confirmed the date), then $4 / $20. Claude Haiku 5.5's price is for prompts up to 100K tokens; above that every rate is five times higher. Hy4 is listed at 50% off (standard rate about $0.83 / $2.50). GPT-6.2 prices are for up to 272K tokens of context. Other snapshots (*): DeepSeek's FrontierCode 1.1 result is for the earlier V4.1 Flash and its SWE Atlas result for V4.1 Flash without the 1017 suffix; Hy4's Code Migration result is for Hy4 Preview; Mistral Large 4's DeepSWE result is for its preview.</p>
+<p class="notes">Price notes: Gemini 4 Carbon's $2 / $10 is an introductory price, which Google confirms ends November 30, 2026, then $4 / $20. Claude Haiku 5.5's price is for prompts up to 100K tokens; above that every rate is five times higher. Hy4 is listed at 50% off (standard rate about $0.83 / $2.50). GPT-6.2 prices are for up to 272K tokens of context. Other snapshots (*): DeepSeek's FrontierCode 1.1 result is for the earlier V4.1 Flash and its SWE Atlas result for V4.1 Flash without the 1017 suffix; Hy4's Code Migration result is for Hy4 Preview; Mistral Large 4's DeepSWE result is for its preview.</p>
 
 <h2>Languages covered</h2>
 <p>The ranking targets C/C++, but only two columns state that they test it: <strong>Atlas</strong> (SWE Atlas repositories in Go, Python, TypeScript, JavaScript, C and C++, with no per-language scores) and <strong>C++ mig</strong> (code ported into C++). The other benchmarks:</p>
@@ -129,51 +130,49 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <li><strong>FC 2.0, TB 4.0, Cursor, FSWE</strong>: languages not published. FrontierCode 2.0's sample tasks are JavaScript and a Kotlin Android SDK, FrontierSWE's example is reimplementing git in Zig, and Terminal-Bench 4.0 is split by task area, not language.</li>
   <li><strong>C++ mig</strong> source programs: Python, Java, Kotlin and Rust.</li>
 </ul>
-<p>Together the benchmarks cover at least Python, TypeScript, JavaScript, Go, Rust, Java, Kotlin, C and C++. Most of the table measures general software-engineering ability, which carries over between languages, but the order can change by language. In Code Migration, Claude Fable 5.2 leads on ports into C++ (86.1%) although Claude Sonnet 5.5 leads overall; Gemini 4 Argon does better in C++ than overall; GLM 5.3 drops from 49.6% into Python to 26.9% into C++, below the smaller GLM 5.3 Flash.</p>
+<p>Together the benchmarks cover at least Python, TypeScript, JavaScript, Go, Rust, Java, Kotlin, C and C++. Most of the table measures general software-engineering ability, which carries over between languages, but the order can change by language. In Code Migration, Claude Fable 5.2 leads on ports into C++ (86.1%) although Claude Sonnet 5.5 leads overall; Gemini 4 Argon does better in C++ than overall; GLM 5.3 drops from 49.6% into Python to 26.9% into C++, below the smaller GLM 5.3 Flash. Gemini 4 Neon has no C/C++ result yet.</p>
 
-<h2>What changed since November 13</h2>
+<h2>What changed since November 18</h2>
 <ul>
-  <li><strong>Two new columns:</strong> SWE Atlas v1.1 (Scale AI, 17 of the 25 models), the only benchmark here with C and C++ repositories, and Code Migration v1.1 (Vals AI, 13 models), the only one with a C++ score of its own.</li>
-  <li><strong>FC 2.0</strong> now has a result for all 25 models: Muse Wonder, DeepSeek V4.1 Flash 1017, GLM 5.3, Grok 4.7, MiMo-V2.6-Pro and Muse Spark 1.3 are added, and Mistral Large 4 shows 15.0 at high effort instead of 13.6.</li>
-  <li><strong>GLM 5.3</strong> drops from 8.7 to 8.5 (#12 to #14): it has the weakest C++ result in the table (26.9%) and only 21.6% on FrontierCode 2.0.</li>
-  <li><strong>GPT-6.2 Astra</strong> (OpenAI, Nov 17) replaces GPT-6 Astra at #3. Independent results so far beat GPT-6 Astra: 63.1% on Terminal-Bench 4.0 (was 59.6%) and 49.0% on FrontierCode 2.0, 0.1 points behind Claude Fable 5.2. But Artificial Analysis measures no gain on its Coding Agent Index, and early users report that it stops early on long builds and is hard to steer. It now costs the same as Fable 5.2.</li>
-  <li><strong>GPT-6.2 Sol</strong> (Nov 17) replaces GPT-6.1 Sol at #8: better on Terminal-Bench 4.0 (60.6% vs 55.0%) and FrontierCode 2.0 (44.4% vs 40.6%), but 3 points lower on Artificial Analysis's Coding Agent Index.</li>
-  <li><strong>Qwen4-Max</strong> (Alibaba, Nov 16) replaces Qwen3.8 Max: 48.5% on Terminal-Bench 4.0 (was 38.9%) and a Vals Index just above Kimi K3.1 Pro, but only 26.4% on FrontierCode 2.0. Closed weights; no Qwen4 Coder yet.</li>
-  <li><strong>Gemini 4 Hydrogen</strong> rises to #7 with new results: FrontierSWE 53.1% and CursorBench 57.8% at Extra High effort.</li>
-  <li>The list grows to 25: <strong>GPT-6.1 Terra</strong>, <strong>Claude Haiku 5.5</strong>, <strong>Muse Spark 1.3</strong> and <strong>Muse Ember</strong> join, and #21–#25 add the strongest cheap and open-weight models: <strong>MiniMax M3.1 Flash</strong>, <strong>GLM 5.3 Flash</strong>, <strong>Step 5 Preview</strong>, <strong>Mistral Large 4</strong> and <strong>GPT-6 Luna</strong>. Smaller tiers are now ranked on merit.</li>
-  <li>Cursor published CursorBench 4.1 on November 18; the Cursor column still shows 4.0 results.</li>
-  <li><strong>Not ranked:</strong> MAI Code 2 (Microsoft, Nov 17) is available only in GitHub Copilot, with no API price and no independent results yet. Inkling 2 Small, ERNIE 5.5 Flash Preview, Claude Mythos 5.2, Cognition SWE-2 and Muse Wonder Full have no OpenRouter price. MiMo-V2.6-Flash (estimated 7.6) is just below #25.</li>
+  <li><strong>Gemini 4 Neon</strong> (Google, Nov 18) enters at #5 with 9.4. Google's new middle tier, between Carbon and Hydrogen. Independent results: #1 on CursorBench 4.1 (65.4%), #1 on the Artificial Analysis Coding Agent Index (58.6, level with Fable 5.2 and Opus 5.5), #2 on Vibe Code Bench v1.1 (93.7%), 61.6% on Terminal-Bench 4.0 (#7) and 44.4% on FrontierCode 2.0. No DeepSWE, FrontierSWE, SWE Atlas or Code Migration result yet, so no evidence on long-horizon work or C/C++. In Bito's debugging test in Claude Code it scored 79.8%, just behind Carbon (80.7%), at less than half Carbon's cost. $3 / $15 across its 1M-token context.</li>
+  <li><strong>Cursor column</strong> now shows CursorBench 4.1. Gemini 4 Hydrogen (57.8% to 61.4%) and Gemini 4 Argon (52.9% to 56.5%) move most. Muse Wonder, DeepSeek V4.1 Flash 1017, GLM 5.3 and GLM 5.3 Flash are not on the 4.1 leaderboard yet and keep their 4.0 results (§). No rating changes.</li>
+  <li>Google now confirms that Gemini 4 Carbon's introductory price ends November 30.</li>
+  <li><strong>GPT-6 Luna</strong> (7.7) drops out at #26.</li>
+  <li>Other leaderboards have no new results for the ranked models. The November 18 changes (GPT-6.2 Astra and Sol, Qwen4-Max, places #17–#25, the SWE Atlas and Code Migration columns, GLM 5.3's drop to 8.5) are in the <a href="https://github.com/inikep/ai-coding-ranking/blob/main/2026-11-18-AI-coding-ranking.txt">November 18 edition</a>.</li>
+  <li><strong>Not ranked:</strong> MAI Code 2 (Microsoft, Nov 17) is available only in GitHub Copilot, with no API price and no independent results yet. Inkling 2 Small, ERNIE 5.5 Flash Preview, Claude Mythos 5.2, Cognition SWE-2 and Muse Wonder Full have no OpenRouter price. GPT-6 Luna (7.7) and MiMo-V2.6-Flash (7.6) are just below #25.</li>
 </ul>
 
-<h2>New models against their predecessors</h2>
+<h2>Gemini 4 Neon against the Gemini 4 family and Claude</h2>
 <div class="grid2">
 <div class="card scroll">
 <h3>Independent results</h3>
 <table class="mini">
-<thead><tr><th>Benchmark</th><th>6.2 Astra</th><th>6.2 Sol</th><th>Qwen4</th><th>Fable 5.2</th><th>6 Astra</th><th>6.1 Sol</th></tr></thead>
+<thead><tr><th>Benchmark</th><th>Neon</th><th>Carbon</th><th>Hydrogen</th><th>Fable 5.2</th><th>Opus 5.5</th><th>Sonnet 5.5</th></tr></thead>
 <tbody>
-<tr><td>Terminal-Bench 4.0 (Vals)</td><td>63.1</td><td>60.6</td><td>48.5</td><td>65.2</td><td>59.6</td><td>55.0</td></tr>
-<tr><td>FrontierCode 2.0 (AA)</td><td>49.0</td><td>44.4</td><td>26.4</td><td>49.1</td><td>42.4</td><td>40.6</td></tr>
-<tr><td>AA Intelligence Index</td><td>62.1</td><td>57.3</td><td>43</td><td>64.6</td><td>56.9</td><td>54.6</td></tr>
+<tr><td>Terminal-Bench 4.0 (Vals)</td><td>61.6</td><td>63.1</td><td>54.0</td><td>65.2</td><td>65.2</td><td>64.1</td></tr>
+<tr><td>FrontierCode 2.0 (AA)</td><td>44.4</td><td>40.6</td><td>39.0</td><td>49.1</td><td>46.4</td><td>41.7</td></tr>
+<tr><td>CursorBench 4.1</td><td>65.4</td><td>61.5</td><td>61.4</td><td>61.3</td><td>58.1</td><td>54.4</td></tr>
+<tr><td>AA Coding Agent Index</td><td>58.6</td><td>55.5</td><td>52.3</td><td>58.5</td><td>58.2</td><td>56.3</td></tr>
+<tr><td>Vibe Code Bench v1.1</td><td>93.7</td><td>89.1</td><td>87.8</td><td>93.8</td><td>90.3</td><td>92.4</td></tr>
 </tbody>
 </table>
 </div>
 <div class="card scroll">
-<h3>Vendor-reported: MAI Code 2 (Microsoft harness)</h3>
+<h3>Vendor-reported: Gemini 4 Neon (Google)</h3>
 <table class="mini">
-<thead><tr><th>Benchmark</th><th>MAI Code 2</th><th>GPT-6.1 Sol</th><th>Opus 5.5</th></tr></thead>
+<thead><tr><th>Benchmark</th><th>Neon</th></tr></thead>
 <tbody>
-<tr><td>DeepSWE 1.1</td><td>73.2</td><td>74.6</td><td>69.0</td></tr>
-<tr><td>Terminal-Bench 2.1</td><td>84.6</td><td>85.0</td><td>78.7</td></tr>
-<tr><td>SWE Atlas</td><td>43.1</td><td>47.4</td><td>57.5</td></tr>
-<tr><td>FrontierCode 1.1</td><td>52.0</td><td>49.4</td><td>56.0</td></tr>
+<tr><td>Terminal-Bench 4.1</td><td>65.2</td></tr>
+<tr><td>FrontierCode 2.0 (high)</td><td>46.2</td></tr>
+<tr><td>SWE-sweep (mini-SWE / Antigravity)</td><td>12.8 / 39.0</td></tr>
+<tr><td>AutomationBench</td><td>56.3</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 
 <h2>Recommendation</h2>
-<p>For a controlled head-to-head evaluation, start with <strong>Claude Fable 5.2, Claude Opus 5.5, GPT-6.2 Astra and Gemini 4 Carbon</strong>. Fable 5.2 is still the strongest model overall and also leads both C/C++ columns; compare it at high effort against Opus 5.5 at max effort. GPT-6.2 Astra matches Fable 5.2 on FrontierCode 2.0 at the same price, but until DeepSWE and FrontierSWE results arrive it is a better fit for code review than for long autonomous tasks. Trial Gemini 4 Carbon before its introductory price ends. Kimi K3.1 Pro remains worth a trial for long terminal and agentic tasks. For high-volume work such as test-failure triage and first-pass review, Gemini 4 Hydrogen, GPT-6.1 Terra and Claude Haiku 5.5 are the cheaper options. Where C++ quality matters more than price, Claude Sonnet 5.5 ($2 / $10) scores 84.4% on ports into C++, far ahead of the cheapest models with a result. Test them on real InnoDB concurrency issues, replication bugs, crash recovery, memory-safety problems, complex code reviews and MTR regression tests.</p>
+<p>For a controlled head-to-head evaluation, start with <strong>Claude Fable 5.2, Claude Opus 5.5, GPT-6.2 Astra and Gemini 4 Carbon</strong>. Fable 5.2 is still the strongest model overall and also leads both C/C++ columns; compare it at high effort against Opus 5.5 at max effort. GPT-6.2 Astra matches Fable 5.2 on FrontierCode 2.0 at the same price, but until DeepSWE and FrontierSWE results arrive it is a better fit for code review than for long autonomous tasks. Trial Gemini 4 Carbon before its introductory price ends on November 30, and run Gemini 4 Neon next to it: Neon leads CursorBench 4.1 and the Coding Agent Index and costs less than Carbon's regular price, but has no C/C++ or long-horizon result yet. Kimi K3.1 Pro remains worth a trial for long terminal and agentic tasks. For high-volume work such as test-failure triage and first-pass review, Gemini 4 Hydrogen, GPT-6.1 Terra and Claude Haiku 5.5 are the cheaper options. Where C++ quality matters more than price, Claude Sonnet 5.5 ($2 / $10) scores 84.4% on ports into C++, far ahead of the cheapest models with a result. Test them on real InnoDB concurrency issues, replication bugs, crash recovery, memory-safety problems, complex code reviews and MTR regression tests.</p>
 
 <h2>Method</h2>
 <p>Ratings weigh large-repository understanding, complex debugging, code review, long-horizon engineering and C/C++ correctness. They are estimates, not a formula over the benchmarks: benchmarks use different agent harnesses and reasoning settings, and the table shows each model's best published configuration. Only SWE Atlas and Code Migration state that they include C or C++ (see Languages covered). SWE-bench Verified, SWE-bench Pro, SWE-bench Multilingual, Aider Polyglot and LiveCodeBench are not shown because they have results for few or none of these models. Independent results are preferred; vendor results appear only where nothing else exists and are marked †. Prices are indicative; where OpenRouter lists several rate tiers, the vendor's standard tier is shown.</p>
@@ -188,45 +187,46 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <li>SWE Atlas: <a href="https://labs.scale.com/leaderboard/swe-atlas">scale.com</a></li>
   <li>Code Migration: <a href="https://www.vals.ai/benchmarks/code-migration-v1-1">vals.ai</a></li>
   <li>Benchmark languages: <a href="https://hub.harborframework.com/datasets/datacurve/deep-swe-1-1/latest">DeepSWE (Harbor)</a>, <a href="https://cognition.com/blog/frontier-code">FrontierCode (Cognition)</a>, <a href="https://artificialanalysis.ai/evaluations/frontiercode-2-0">FrontierCode 2.0 (AA)</a></li>
+  <li>Gemini 4 Neon: <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/">Google</a>, <a href="https://artificialanalysis.ai/models/gemini-4-neon">Artificial Analysis</a>, <a href="https://bito.ai/blog/gemini-4-neon-vs-carbon-hydrogen/">Bito</a>, <a href="https://aistudio.google.com/docs/pricing">Google pricing</a></li>
   <li>GPT-6.2: <a href="https://openai.com/index/introducing-gpt-6-2-astra-sol/">OpenAI</a>, <a href="https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/">The Decoder</a>, <a href="https://www.datacamp.com/blog/gpt-6-2-astra-and-sol">DataCamp</a>, <a href="https://venturebeat.com/technology/essentially-unusable-openai-launches-gpt-6-2-astra-and-sol-to-negative-reception-from-ai-power-users">VentureBeat</a></li>
   <li>Qwen4-Max: <a href="https://www.vals.ai/models/alibaba_qwen4-max">Vals AI</a>, <a href="https://geotoolbox.ai/blog/qwen-4">geotoolbox</a></li>
   <li>MAI Code 2: <a href="https://www.unite.ai/microsoft-ai-releases-mai-code-2-and-mai-code-2-flash-for-enterprises/">Unite.AI</a>, <a href="https://www.eesel.ai/blog/mai-code-2">eesel</a></li>
   <li>Prices: <a href="https://openrouter.ai/models">OpenRouter</a></li>
 </ul>
 
-<footer>Ratings are estimates. Prices are indicative and may change. Updated November 18, 2026.</footer>
+<footer>Ratings are estimates. Prices are indicative and may change. Updated November 19, 2026.</footer>
 </main>
 
 <script>
-// value, mark: "" | "†" | "‡" | "*"
+// value, mark: "" | "†" | "‡" | "*" | "§"
 const M = (v, m = "") => ({ v, m });
 const N = null;
 const rows = [
-  ["Claude Fable 5.2", "Anthropic", 9.9, M(74.3), M(65.2), M(49.1), M(64.0, "‡"), M(60.0), M(69.9), M(80.6), M(86.1), M(8.00), M(40.00)],
-  ["Claude Opus 5.5", "Anthropic", 9.8, M(74.2), M(65.2), M(46.4), M(54.6), M(57.8), M(62.3), M(77.5), M(79.0), M(4.00), M(20.00)],
-  ["GPT-6.2 Astra", "OpenAI", 9.6, N, M(63.1), M(49.0), N, N, N, M(60.5), N, M(8.00), M(40.00), true],
-  ["Gemini 4 Carbon", "Google", 9.6, N, M(63.1), M(40.6), N, M(60.4), M(61.2), M(71.5), N, M(2.00, "*"), M(10.00, "*")],
-  ["Claude Sonnet 5.5", "Anthropic", 9.2, M(70.5), M(64.1), M(41.7), M(52.1), M(55.5), M(61.9), M(68.3), M(84.4), M(2.00), M(10.00)],
-  ["Gemini 4 Argon", "Google", 9.2, M(77.9), M(57.6), M(25.7), M(47.5), M(52.9), M(55.0), M(70.1), M(75.7), M(2.00), M(10.00)],
-  ["Gemini 4 Hydrogen", "Google", 9.1, N, M(54.0), M(39.0), N, M(57.8), M(53.1), N, N, M(1.50), M(7.50)],
-  ["GPT-6.2 Sol", "OpenAI", 9.0, N, M(60.6), M(44.4), N, N, N, M(60.5), N, M(2.00), M(10.00), true],
+  ["Claude Fable 5.2", "Anthropic", 9.9, M(74.3), M(65.2), M(49.1), M(64.0, "‡"), M(61.3), M(69.9), M(80.6), M(86.1), M(8.00), M(40.00)],
+  ["Claude Opus 5.5", "Anthropic", 9.8, M(74.2), M(65.2), M(46.4), M(54.6), M(58.1), M(62.3), M(77.5), M(79.0), M(4.00), M(20.00)],
+  ["GPT-6.2 Astra", "OpenAI", 9.6, N, M(63.1), M(49.0), N, N, N, M(60.5), N, M(8.00), M(40.00)],
+  ["Gemini 4 Carbon", "Google", 9.6, N, M(63.1), M(40.6), N, M(61.5), M(61.2), M(71.5), N, M(2.00, "*"), M(10.00, "*")],
+  ["Gemini 4 Neon", "Google", 9.4, N, M(61.6), M(44.4), N, M(65.4), N, N, N, M(3.00), M(15.00), true],
+  ["Claude Sonnet 5.5", "Anthropic", 9.2, M(70.5), M(64.1), M(41.7), M(52.1), M(54.4), M(61.9), M(68.3), M(84.4), M(2.00), M(10.00)],
+  ["Gemini 4 Argon", "Google", 9.2, M(77.9), M(57.6), M(25.7), M(47.5), M(56.5), M(55.0), M(70.1), M(75.7), M(2.00), M(10.00)],
+  ["Gemini 4 Hydrogen", "Google", 9.1, N, M(54.0), M(39.0), N, M(61.4), M(53.1), N, N, M(1.50), M(7.50)],
+  ["GPT-6.2 Sol", "OpenAI", 9.0, N, M(60.6), M(44.4), N, N, N, M(60.5), N, M(2.00), M(10.00)],
   ["Kimi K3.1 Pro", "Moonshot AI", 8.9, M(75.5), M(63.6), M(25.4), M(47.1, "‡"), N, N, M(61.1), N, M(2.00), M(10.00)],
-  ["Muse Wonder", "Meta", 8.9, M(78.8), M(49.5), M(27.9), M(47.0), M(50.4), N, M(64.8), M(72.4), M(4.00), M(20.00)],
-  ["DeepSeek V4.1 Flash 1017", "DeepSeek", 8.8, M(77.0), M(31.8), M(28.5), M(43.9, "*"), M(47.7), N, M(62.1, "*"), M(55.5), M(0.15), M(0.60)],
-  ["GPT-6.1 Terra", "OpenAI", 8.7, N, M(49.5), M(42.3), M(41.4, "‡"), N, N, M(57.7), N, M(1.00), M(5.00), true],
-  ["Qwen4-Max", "Alibaba", 8.6, M(75.7, "†"), M(48.5), M(26.4), N, N, N, N, N, M(1.50), M(4.50), true],
-  ["GLM 5.3", "Zhipu AI", 8.5, M(72.0), M(38.9), M(21.6), M(40.1), M(42.6), M(30.2), M(58.1), M(26.9), M(0.07), M(1.40)],
-  ["Claude Haiku 5.5", "Anthropic", 8.4, M(59.9), M(36.4), M(34.9), M(46.4), M(48.4), M(43.8), M(59.4), M(41.2), M(0.10, "*"), M(0.50, "*"), true],
-  ["Grok 4.7", "SpaceXAI", 8.3, M(71.0), M(28.8), M(28.7), M(47.6), M(46.3), M(29.5), M(62.1), M(35.1), M(2.00), M(6.00)],
+  ["Muse Wonder", "Meta", 8.9, M(78.8), M(49.5), M(27.9), M(47.0), M(50.4, "§"), N, M(64.8), M(72.4), M(4.00), M(20.00)],
+  ["DeepSeek V4.1 Flash 1017", "DeepSeek", 8.8, M(77.0), M(31.8), M(28.5), M(43.9, "*"), M(47.7, "§"), N, M(62.1, "*"), M(55.5), M(0.15), M(0.60)],
+  ["GPT-6.1 Terra", "OpenAI", 8.7, N, M(49.5), M(42.3), M(41.4, "‡"), N, N, M(57.7), N, M(1.00), M(5.00)],
+  ["Qwen4-Max", "Alibaba", 8.6, M(75.7, "†"), M(48.5), M(26.4), N, N, N, N, N, M(1.50), M(4.50)],
+  ["GLM 5.3", "Zhipu AI", 8.5, M(72.0), M(38.9), M(21.6), M(40.1), M(42.6, "§"), M(30.2), M(58.1), M(26.9), M(0.07), M(1.40)],
+  ["Claude Haiku 5.5", "Anthropic", 8.4, M(59.9), M(36.4), M(34.9), M(46.4), M(48.4), M(43.8), M(59.4), M(41.2), M(0.10, "*"), M(0.50, "*")],
+  ["Grok 4.7", "SpaceXAI", 8.3, M(71.0), M(28.8), M(28.7), M(47.6), M(48.6), M(29.5), M(62.1), M(35.1), M(2.00), M(6.00)],
   ["Hy4", "Tencent", 8.3, M(74.9, "†"), M(39.4), M(31.4), N, N, N, N, M(33.6, "*"), M(0.42, "*"), M(1.25, "*")],
   ["MiMo-V2.6-Pro", "Xiaomi", 8.2, M(71.9), M(31.3), M(24.0), M(45.4, "‡"), N, N, N, M(32.2), M(0.44), M(0.87)],
-  ["Muse Spark 1.3", "Meta", 8.1, M(75.4), M(24.8), M(23.1), N, M(41.6), M(25.8), N, N, M(1.25), M(4.25), true],
-  ["Muse Ember", "Meta", 8.1, N, M(39.4), M(27.2), N, N, N, M(56.0), N, M(0.10), M(0.50), true],
-  ["MiniMax M3.1 Flash", "MiniMax", 8.0, M(73.7), M(25.3), M(20.8), N, N, N, N, N, M(0.15), M(0.60), true],
-  ["GLM 5.3 Flash", "Zhipu AI", 7.9, M(64.3), M(37.4), M(17.6), M(31.8), M(36.8), M(18.1), M(55.3), M(35.1), M(0.15), M(0.50), true],
-  ["Step 5 Preview", "StepFun", 7.8, M(67.7), M(31.8), M(12.0), N, N, N, N, M(34.4), M(1.00), M(2.70), true],
-  ["Mistral Large 4", "Mistral", 7.8, M(61.7, "*"), M(27.8), M(15.0), M(39.4), N, N, M(45.2), N, M(0.70), M(2.10), true],
-  ["GPT-6 Luna", "OpenAI", 7.7, M(67.0), M(13.6), M(25.2), M(42.4), N, N, M(50.8), M(47.8), M(0.10), M(0.50), true],
+  ["Muse Spark 1.3", "Meta", 8.1, M(75.4), M(24.8), M(23.1), N, M(41.9), M(25.8), N, N, M(1.25), M(4.25)],
+  ["Muse Ember", "Meta", 8.1, N, M(39.4), M(27.2), N, N, N, M(56.0), N, M(0.10), M(0.50)],
+  ["MiniMax M3.1 Flash", "MiniMax", 8.0, M(73.7), M(25.3), M(20.8), N, N, N, N, N, M(0.15), M(0.60)],
+  ["GLM 5.3 Flash", "Zhipu AI", 7.9, M(64.3), M(37.4), M(17.6), M(31.8), M(36.8, "§"), M(18.1), M(55.3), M(35.1), M(0.15), M(0.50)],
+  ["Step 5 Preview", "StepFun", 7.8, M(67.7), M(31.8), M(12.0), N, N, N, N, M(34.4), M(1.00), M(2.70)],
+  ["Mistral Large 4", "Mistral", 7.8, M(61.7, "*"), M(27.8), M(15.0), M(39.4), N, N, M(45.2), N, M(0.70), M(2.10)],
 ].map((r, i) => ({
   rank: i + 1, name: r[0], vendor: r[1], rate: r[2],
   deep: r[3], tb4: r[4], fc2: r[5], fcod: r[6], curs: r[7], fswe: r[8], atls: r[9], mcpp: r[10], in: r[11], out: r[12], isNew: !!r[13],
