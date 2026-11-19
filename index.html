@@ -54,6 +54,7 @@ td.model { font-weight: 600; }
 .rate strong { min-width: 2em; }
 td.na { color: var(--muted); }
 sup { color: var(--muted); font-size: 0.7em; margin-left: 1px; }
+td.prev { color: var(--muted); opacity: 0.75; }
 .legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 6px 24px; padding: 16px 18px; font-size: 0.88rem; }
 .legend b { display: inline-block; min-width: 3.4em; }
 .notes { font-size: 0.88rem; color: var(--muted); margin-top: 10px; }
@@ -117,6 +118,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <div><b>$ in/out</b> OpenRouter price, USD per 1M tokens</div>
   <div><b>–</b> no comparable published result</div>
   <div><b>†</b> DeepSWE score sourced through a vendor publication; some cite external evaluations</div>
+  <div><b style="color:var(--muted);opacity:0.75">grey</b> previous version's result; this version has none (hover for the version)</div>
   <div><b>‡</b> Sweep: Google cites the official leaderboard, but the score is not published there</div>
   <div><b>§</b> CursorBench 4.0 result; not on the 4.1 leaderboard yet</div>
   <div><b>*</b> score: another snapshot of the same model · price: see notes</div>
@@ -182,6 +184,8 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
 <h2>Method</h2>
 <p>Ratings weigh large-repository understanding, complex debugging, code review, long-horizon engineering and C/C++ correctness. They are estimates, not a formula over the benchmarks: benchmarks use different agent harnesses and reasoning settings, and the table shows each model's best published configuration. SWE Atlas and Code Migration explicitly describe C/C++ coverage; FrontierSWE also includes C systems tasks (see Languages covered). SWE-bench Verified, SWE-bench Pro, SWE-bench Multilingual, Aider Polyglot and LiveCodeBench are not shown because they have results for few or none of these models. DeepSWE combines Mercor results with vendor publications (†), some of which cite Datacurve evaluations; publication provenance is not proof of an independent run. FC AA and FC Cog both use FrontierCode 2.0 but different harnesses. FC Cog replaces the legacy 1.1 column; its scores must not be interpreted as changes on the same test. FSWE uses V2 mean@5 across 34 tasks, with five trials and a 20-hour budget per trial. Prices are indicative; where OpenRouter lists several rate tiers, the vendor's standard tier is shown.</p>
 
+<p class="notes">Grey cells: this version has no result, so the direct predecessor's result is shown (hover for the version): GPT-6 Astra for GPT-6.2 Astra, GPT-6.1 Sol for GPT-6.2 Sol, Gemini 3.8 Flash for Gemini 4 Hydrogen, Kimi K3 for Kimi K3.1 Pro, GPT-5.6 Terra for GPT-6.1 Terra, Qwen3.8 Max (0902) for Qwen4-Max (Atlas: Qwen 3.8 Max, snapshot not stated), Inkling Small for Inkling 2 Small and Claude Fable 5.1 for Fable 5.2. They do not change the ratings. CursorBench 4.1 and Cognition's FrontierCode 2.0 have no result for any predecessor; MiniMax M3 is not used for MiniMax M3.1 Flash because it is a different tier. Google's Carbon evaluation cites 9.5% on SWE-sweep for GPT-6 Astra; the official leaderboard shows 8.9%.</p>
+
 <p class="notes">DeepSWE publication provenance: Meta’s Muse Wonder model card and Thinking Machines’ Inkling 2 Small launch credit Datacurve for their DeepSWE results; Kimi’s launch describes its own Claude Code evaluation. The † marker identifies the publication used, not a common test harness.</p>
 
 <p class="notes">Sweep: Ten models have a mini-SWE score. The official leaderboard (November 2 snapshot) supplies Opus 5.5, GLM 5.3 Flash, MiniMax M3.1 Flash and DeepSeek V4.1 Flash (without the 1017 suffix, marked *). Google self-reports Carbon and Argon in its Carbon evaluation, and Neon and GPT-6.2 Sol with a mini-swe-agent vision variant in its Neon evaluation; Google reports subtask-weighted reward. Provider-harness scores are not shown: Gemini 4 Hydrogen 13.5% and Neon 39.0% (Antigravity CLI), Opus 5.5 10.1% (Claude Code), GPT-6.2 Sol 8.3% (Codex). ‡ Google's Hydrogen evaluation reports Claude Sonnet 5.5 at 3.1% and GPT-6.1 Terra at 5.8% and attributes them to the official SWE-sweep leaderboard, but neither is published there.</p>
@@ -209,24 +213,25 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
 </main>
 
 <script>
-// value, mark: "" | "†" | "‡" | "*" | "§"
+// value, mark: "" | "†" | "‡" | "*" | "§"; P = result of the previous model version (shown grey)
 const M = (v, m = "") => ({ v, m });
+const P = (v, prev, m = "") => ({ v, m, prev });
 const N = null;
 const rows = [
-  ["Claude Fable 5.2", "Anthropic", 9.9, M(74.3, "†"), M(65.2), M(49.1), M(50.2), M(61.3), M(69.9), N, M(80.6), M(86.1), M(8.00), M(40.00)],
+  ["Claude Fable 5.2", "Anthropic", 9.9, M(74.3, "†"), M(65.2), M(49.1), M(50.2), M(61.3), M(69.9), P(2.9, "Claude Fable 5.1"), M(80.6), M(86.1), M(8.00), M(40.00)],
   ["Claude Opus 5.5", "Anthropic", 9.8, M(74.2, "†"), M(65.2), M(46.4), M(47.3), M(58.1), M(62.3), M(3.6), M(77.5), M(79.0), M(4.00), M(20.00)],
-  ["GPT-6.2 Astra", "OpenAI", 9.6, N, M(63.1), M(49.0), M(44.2), N, N, N, M(60.5), N, M(8.00), M(40.00)],
+  ["GPT-6.2 Astra", "OpenAI", 9.6, P(74.1, "GPT-6 Astra", "†"), M(63.1), M(49.0), M(44.2), N, P(65.5, "GPT-6 Astra"), P(8.9, "GPT-6 Astra"), M(60.5), P(80.1, "GPT-6 Astra"), M(8.00), M(40.00)],
   ["Gemini 4 Carbon", "Google", 9.6, N, M(63.1), M(40.6), M(42.6), M(61.5), M(61.2), M(9.6), M(71.5), N, M(2.00, "*"), M(10.00, "*")],
   ["Gemini 4 Neon", "Google", 9.4, N, M(61.6), M(44.4), M(46.2), M(65.4), N, M(12.8), N, N, M(3.00), M(15.00), true],
   ["Claude Sonnet 5.5", "Anthropic", 9.2, M(70.5), M(64.1), M(41.7), M(42.2), M(54.4), M(61.9), M(3.1, "‡"), M(68.3), M(84.4), M(2.00), M(10.00)],
   ["Gemini 4 Argon", "Google", 9.2, M(77.9, "†"), M(57.6), M(25.7), M(27.6), M(56.5), M(55.0), M(4.3), M(70.1), M(75.7), M(2.00), M(10.00)],
-  ["Gemini 4 Hydrogen", "Google", 9.1, N, M(54.0), M(39.0), M(38.9), M(61.4), M(53.1), N, N, N, M(1.50), M(7.50)],
-  ["GPT-6.2 Sol", "OpenAI", 9.0, N, M(60.6), M(44.4), M(43.8), N, N, M(11.6), M(60.5), N, M(2.00), M(10.00)],
-  ["Kimi K3.1 Pro", "Moonshot AI", 8.9, M(75.5, "†"), M(63.6), M(25.5), M(19.9), N, N, N, M(61.1), N, M(2.00), M(10.00)],
+  ["Gemini 4 Hydrogen", "Google", 9.1, P(73.8, "Gemini 3.8 Flash"), M(54.0), M(39.0), M(38.9), M(61.4), M(53.1), N, P(57.3, "Gemini 3.8 Flash"), P(31.1, "Gemini 3.8 Flash"), M(1.50), M(7.50)],
+  ["GPT-6.2 Sol", "OpenAI", 9.0, P(75.2, "GPT-6.1 Sol", "†"), M(60.6), M(44.4), M(43.8), N, N, M(11.6), M(60.5), P(80.8, "GPT-6.1 Sol"), M(2.00), M(10.00)],
+  ["Kimi K3.1 Pro", "Moonshot AI", 8.9, M(75.5, "†"), M(63.6), M(25.5), M(19.9), N, P(25.9, "Kimi K3"), P(0.6, "Kimi K3 (max)"), M(61.1), P(7.3, "Kimi K3"), M(2.00), M(10.00)],
   ["Muse Wonder", "Meta", 8.9, M(78.8, "†"), M(49.5), M(27.9), M(25.3), M(50.4, "§"), N, N, M(64.8), M(72.4), M(4.00), M(20.00)],
   ["DeepSeek V4.1 Flash 1017", "DeepSeek", 8.8, M(77.0, "†"), M(31.8), M(28.5), M(20.2), M(47.7, "§"), N, M(1.6, "*"), M(62.1, "*"), M(55.5), M(0.30, "*"), M(1.20, "*")],
-  ["GPT-6.1 Terra", "OpenAI", 8.7, N, M(49.5), M(42.3), N, N, N, M(5.8, "‡"), M(57.7), N, M(1.00), M(5.00)],
-  ["Qwen4-Max", "Alibaba", 8.6, M(75.7, "†"), M(48.5), M(26.5), N, N, N, N, N, N, M(1.43), M(4.28)],
+  ["GPT-6.1 Terra", "OpenAI", 8.7, P(70.2, "GPT-5.6 Terra"), M(49.5), M(42.3), N, N, N, M(5.8, "‡"), M(57.7), N, M(1.00), M(5.00)],
+  ["Qwen4-Max", "Alibaba", 8.6, M(75.7, "†"), M(48.5), M(26.5), N, N, P(17.8, "Qwen3.8 Max (0902)"), N, P(64.4, "Qwen 3.8 Max"), P(42.3, "Qwen3.8 Max (0902)"), M(1.43), M(4.28)],
   ["GLM 5.3", "Zhipu AI", 8.5, M(72.0), M(38.9), M(21.6), M(20.2), M(42.6, "§"), M(30.2), N, M(58.1), M(26.9), M(0.07), M(1.40)],
   ["Claude Haiku 5.5", "Anthropic", 8.4, M(59.9), M(36.4), M(34.9), M(28.9), M(48.4), M(43.8), N, M(59.4), M(41.2), M(0.10, "*"), M(0.50, "*")],
   ["Grok 4.7", "SpaceXAI", 8.3, M(71.0, "†"), M(28.8), M(28.7), M(28.9), M(48.6), M(29.5), N, M(62.1), M(35.1), M(2.00), M(6.00)],
@@ -235,7 +240,7 @@ const rows = [
   ["Muse Spark 1.3", "Meta", 8.1, M(75.4, "†"), M(24.8), M(23.1), N, M(41.9), M(25.8), N, N, N, M(1.25), M(4.25)],
   ["Muse Ember", "Meta", 8.1, N, M(39.4), M(27.2), N, N, N, N, M(56.0), N, M(0.10), M(0.50)],
   ["MiniMax M3.1 Flash", "MiniMax", 8.0, M(73.7, "†"), M(25.3), M(20.8), N, N, N, M(0.7), N, N, M(0.15), M(0.60)],
-  ["Inkling 2 Small", "Thinking Machines", 8.0, M(72.1, "†"), M(12.6), M(25.4), M(22.6), N, M(25.1), N, M(61.9), N, M(0.30), M(1.00), true],
+  ["Inkling 2 Small", "Thinking Machines", 8.0, M(72.1, "†"), M(12.6), M(25.4), M(22.6), N, M(25.1), N, M(61.9), P(0.7, "Inkling Small"), M(0.30), M(1.00), true],
   ["GLM 5.3 Flash", "Zhipu AI", 7.9, M(64.3), M(37.4), M(17.6), M(14.9), M(36.8, "§"), M(18.1), M(0.7), M(55.3), M(35.1), M(0.15), M(0.50)],
   ["Step 5 Preview", "StepFun", 7.8, M(67.7, "†"), M(31.8), M(12.0), N, N, N, N, N, M(34.4), M(1.00), M(2.70)],
 ].map((r, i) => ({
@@ -246,7 +251,7 @@ const rows = [
 const tbody = document.querySelector("#ranking tbody");
 const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 const cell = (x, price) => x
-  ? `<td>${price ? x.v.toFixed(2) : x.v.toFixed(1)}${x.m ? `<sup>${x.m}</sup>` : ""}</td>`
+  ? `<td${x.prev ? ` class="prev" title="Previous version: ${esc(x.prev)}"` : ""}>${price ? x.v.toFixed(2) : x.v.toFixed(1)}${x.m ? `<sup>${x.m}</sup>` : ""}</td>`
   : `<td class="na">–</td>`;
 
 function render(list) {
