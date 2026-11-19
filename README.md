@@ -1,7 +1,7 @@
 # AI Coding Models ranking
 
 Top 25 AI coding models for large C/C++ projects, rated 0–10 from DeepSWE,
-Terminal-Bench, FrontierCode, CursorBench, FrontierSWE, SWE Atlas and Code
+Terminal-Bench, FrontierCode, CursorBench, FrontierSWE, SWE-sweep, SWE Atlas and Code
 Migration (C++) results, with OpenRouter prices (which don't affect the
 rating).
 

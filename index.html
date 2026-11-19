@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Coding Models — Top 25</title>
-<meta name="description" content="Top 25 AI coding models for large C/C++ projects, rated 0–10 from DeepSWE, Terminal-Bench, FrontierCode, CursorBench, FrontierSWE, SWE Atlas and Code Migration (C++) results. November 19, 2026.">
+<meta name="description" content="Top 25 AI coding models for large C/C++ projects, rated 0–10 from DeepSWE, Terminal-Bench, FrontierCode, CursorBench, FrontierSWE, SWE-sweep, SWE Atlas and Code Migration (C++) results. November 19, 2026.">
 <style>
 :root {
   --bg: #fbfbfa; --fg: #1d1d1f; --muted: #6b6b70; --line: #e4e4e2; --card: #ffffff;
@@ -94,6 +94,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <th data-k="fcod" title="FrontierCode 2.0, Cognition">FC Cog</th>
   <th data-k="curs" title="CursorBench 4.1">Cursor</th>
   <th data-k="fswe" title="FrontierSWE V2, Proximal: mean@5">FSWE</th>
+  <th data-k="sweep" title="SWE-sweep with mini-SWE-agent (%)">Sweep (mini-SWE)</th>
   <th data-k="atls" title="SWE Atlas v1.1, Scale AI">Atlas</th>
   <th data-k="mcpp" title="Code Migration v1.1, Vals AI: ports into C++">C++ mig</th>
   <th data-k="in" title="OpenRouter input price, USD per 1M tokens">$ in</th>
@@ -110,6 +111,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
   <div><b>FC Cog</b> FrontierCode 2.0, Cognition (%)</div>
   <div><b>Cursor</b> CursorBench 4.1 (%)</div>
   <div><b>FSWE</b> FrontierSWE V2, Proximal (mean@5, %)</div>
+  <div><b>Sweep</b> SWE-sweep with mini-SWE-agent (% of bugs resolved)</div>
   <div><b>Atlas</b> SWE Atlas v1.1, Scale AI (%): codebase Q&amp;A, tests and refactoring in Go, Python, TypeScript, JavaScript, C and C++ repos</div>
   <div><b>C++ mig</b> Code Migration v1.1, Vals AI (%): Python, Java, Kotlin and Rust programs ported into C++</div>
   <div><b>$ in/out</b> OpenRouter price, USD per 1M tokens</div>
@@ -181,8 +183,11 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
 
 <p class="notes">DeepSWE publication provenance: Meta’s Muse Wonder model card and Thinking Machines’ Inkling 2 Small launch credit Datacurve for their DeepSWE results; Kimi’s launch describes its own Claude Code evaluation. The † marker identifies the publication used, not a common test harness.</p>
 
+<p class="notes">Six models have a verified mini-SWE score. The official leaderboard supplies Opus 5.5, GLM 5.3 Flash and MiniMax M3.1 Flash. Google reports Carbon with mini-swe-agent and Neon and GPT-6.2 Sol with its vision variant.</p>
+
 <h2>Sources</h2>
 <ul class="sources">
+  <li>SWE-sweep: <a href="https://swesweep.com/results/">official results</a>, <a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_4_carbon_model_evaluation.pdf">Carbon evaluation</a>, <a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_model_evaluation.pdf">Neon evaluation</a></li>
   <li>DeepSWE provenance: <a href="https://research.meta.ai/static/muse-wonder-model-card">Meta model card</a>, <a href="https://thinkingmachines.ai/news/inkling-2-small/">Inkling 2 Small</a>, <a href="https://www.kimi.ai/blog/kimi-k3-1-pro">Kimi K3.1 Pro</a>, <a href="https://www.mercor.com/apex/oss-benchmarks/oss-deep-swe-leaderboard/">Mercor DeepSWE</a></li>
   <li>DeepSWE v1.1: <a href="https://atlas.village.dev/benchmarks/deepswe-1-1">atlas.village.dev</a></li>
   <li>Terminal-Bench 4.0: <a href="https://www.vals.ai/benchmarks/terminal-bench-4">vals.ai</a>, <a href="https://www.benchleader.com/benchmarks/vals_terminal_bench_4">benchleader.com</a></li>
@@ -207,34 +212,34 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.82rem; }
 const M = (v, m = "") => ({ v, m });
 const N = null;
 const rows = [
-  ["Claude Fable 5.2", "Anthropic", 9.9, M(74.3, "†"), M(65.2), M(49.1), M(50.2), M(61.3), M(69.9), M(80.6), M(86.1), M(8.00), M(40.00)],
-  ["Claude Opus 5.5", "Anthropic", 9.8, M(74.2, "†"), M(65.2), M(46.4), M(47.3), M(58.1), M(62.3), M(77.5), M(79.0), M(4.00), M(20.00)],
-  ["GPT-6.2 Astra", "OpenAI", 9.6, N, M(63.1), M(49.0), M(44.2), N, N, M(60.5), N, M(8.00), M(40.00)],
-  ["Gemini 4 Carbon", "Google", 9.6, N, M(63.1), M(40.6), M(42.6), M(61.5), M(61.2), M(71.5), N, M(2.00, "*"), M(10.00, "*")],
-  ["Gemini 4 Neon", "Google", 9.4, N, M(61.6), M(44.4), M(46.2), M(65.4), N, N, N, M(3.00), M(15.00), true],
-  ["Claude Sonnet 5.5", "Anthropic", 9.2, M(70.5), M(64.1), M(41.7), M(42.2), M(54.4), M(61.9), M(68.3), M(84.4), M(2.00), M(10.00)],
-  ["Gemini 4 Argon", "Google", 9.2, M(77.9, "†"), M(57.6), M(25.7), M(27.6), M(56.5), M(55.0), M(70.1), M(75.7), M(2.00), M(10.00)],
-  ["Gemini 4 Hydrogen", "Google", 9.1, N, M(54.0), M(39.0), M(38.9), M(61.4), M(53.1), N, N, M(1.50), M(7.50)],
-  ["GPT-6.2 Sol", "OpenAI", 9.0, N, M(60.6), M(44.4), M(43.8), N, N, M(60.5), N, M(2.00), M(10.00)],
-  ["Kimi K3.1 Pro", "Moonshot AI", 8.9, M(75.5, "†"), M(63.6), M(25.5), M(19.9), N, N, M(61.1), N, M(2.00), M(10.00)],
-  ["Muse Wonder", "Meta", 8.9, M(78.8, "†"), M(49.5), M(27.9), M(25.3), M(50.4, "§"), N, M(64.8), M(72.4), M(4.00), M(20.00)],
-  ["DeepSeek V4.1 Flash 1017", "DeepSeek", 8.8, M(77.0, "†"), M(31.8), M(28.5), M(20.2), M(47.7, "§"), N, M(62.1, "*"), M(55.5), M(0.30, "*"), M(1.20, "*")],
-  ["GPT-6.1 Terra", "OpenAI", 8.7, N, M(49.5), M(42.3), N, N, N, M(57.7), N, M(1.00), M(5.00)],
-  ["Qwen4-Max", "Alibaba", 8.6, M(75.7, "†"), M(48.5), M(26.5), N, N, N, N, N, M(1.43), M(4.28)],
-  ["GLM 5.3", "Zhipu AI", 8.5, M(72.0), M(38.9), M(21.6), M(20.2), M(42.6, "§"), M(30.2), M(58.1), M(26.9), M(0.07), M(1.40)],
-  ["Claude Haiku 5.5", "Anthropic", 8.4, M(59.9), M(36.4), M(34.9), M(28.9), M(48.4), M(43.8), M(59.4), M(41.2), M(0.10, "*"), M(0.50, "*")],
-  ["Grok 4.7", "SpaceXAI", 8.3, M(71.0, "†"), M(28.8), M(28.7), M(28.9), M(48.6), M(29.5), M(62.1), M(35.1), M(2.00), M(6.00)],
-  ["Hy4", "Tencent", 8.3, M(74.9, "†"), M(39.4), M(31.4), N, N, N, N, M(33.6, "*"), M(0.42, "*"), M(1.25, "*")],
-  ["MiMo-V2.6-Pro", "Xiaomi", 8.2, M(71.9, "†"), M(31.3), M(24.0), N, N, N, N, M(32.2), M(0.44), M(0.87)],
-  ["Muse Spark 1.3", "Meta", 8.1, M(75.4, "†"), M(24.8), M(23.1), N, M(41.9), M(25.8), N, N, M(1.25), M(4.25)],
-  ["Muse Ember", "Meta", 8.1, N, M(39.4), M(27.2), N, N, N, M(56.0), N, M(0.10), M(0.50)],
-  ["MiniMax M3.1 Flash", "MiniMax", 8.0, M(73.7, "†"), M(25.3), M(20.8), N, N, N, N, N, M(0.15), M(0.60)],
-  ["Inkling 2 Small", "Thinking Machines", 8.0, M(72.1, "†"), M(12.6), M(25.4), M(22.6), N, M(25.1), M(61.9), N, M(0.30), M(1.00), true],
-  ["GLM 5.3 Flash", "Zhipu AI", 7.9, M(64.3), M(37.4), M(17.6), M(14.9), M(36.8, "§"), M(18.1), M(55.3), M(35.1), M(0.15), M(0.50)],
-  ["Step 5 Preview", "StepFun", 7.8, M(67.7, "†"), M(31.8), M(12.0), N, N, N, N, M(34.4), M(1.00), M(2.70)],
+  ["Claude Fable 5.2", "Anthropic", 9.9, M(74.3, "†"), M(65.2), M(49.1), M(50.2), M(61.3), M(69.9), N, M(80.6), M(86.1), M(8.00), M(40.00)],
+  ["Claude Opus 5.5", "Anthropic", 9.8, M(74.2, "†"), M(65.2), M(46.4), M(47.3), M(58.1), M(62.3), M(3.6), M(77.5), M(79.0), M(4.00), M(20.00)],
+  ["GPT-6.2 Astra", "OpenAI", 9.6, N, M(63.1), M(49.0), M(44.2), N, N, N, M(60.5), N, M(8.00), M(40.00)],
+  ["Gemini 4 Carbon", "Google", 9.6, N, M(63.1), M(40.6), M(42.6), M(61.5), M(61.2), M(9.6), M(71.5), N, M(2.00, "*"), M(10.00, "*")],
+  ["Gemini 4 Neon", "Google", 9.4, N, M(61.6), M(44.4), M(46.2), M(65.4), N, M(12.8), N, N, M(3.00), M(15.00), true],
+  ["Claude Sonnet 5.5", "Anthropic", 9.2, M(70.5), M(64.1), M(41.7), M(42.2), M(54.4), M(61.9), N, M(68.3), M(84.4), M(2.00), M(10.00)],
+  ["Gemini 4 Argon", "Google", 9.2, M(77.9, "†"), M(57.6), M(25.7), M(27.6), M(56.5), M(55.0), N, M(70.1), M(75.7), M(2.00), M(10.00)],
+  ["Gemini 4 Hydrogen", "Google", 9.1, N, M(54.0), M(39.0), M(38.9), M(61.4), M(53.1), N, N, N, M(1.50), M(7.50)],
+  ["GPT-6.2 Sol", "OpenAI", 9.0, N, M(60.6), M(44.4), M(43.8), N, N, M(11.6), M(60.5), N, M(2.00), M(10.00)],
+  ["Kimi K3.1 Pro", "Moonshot AI", 8.9, M(75.5, "†"), M(63.6), M(25.5), M(19.9), N, N, N, M(61.1), N, M(2.00), M(10.00)],
+  ["Muse Wonder", "Meta", 8.9, M(78.8, "†"), M(49.5), M(27.9), M(25.3), M(50.4, "§"), N, N, M(64.8), M(72.4), M(4.00), M(20.00)],
+  ["DeepSeek V4.1 Flash 1017", "DeepSeek", 8.8, M(77.0, "†"), M(31.8), M(28.5), M(20.2), M(47.7, "§"), N, N, M(62.1, "*"), M(55.5), M(0.30, "*"), M(1.20, "*")],
+  ["GPT-6.1 Terra", "OpenAI", 8.7, N, M(49.5), M(42.3), N, N, N, N, M(57.7), N, M(1.00), M(5.00)],
+  ["Qwen4-Max", "Alibaba", 8.6, M(75.7, "†"), M(48.5), M(26.5), N, N, N, N, N, N, M(1.43), M(4.28)],
+  ["GLM 5.3", "Zhipu AI", 8.5, M(72.0), M(38.9), M(21.6), M(20.2), M(42.6, "§"), M(30.2), N, M(58.1), M(26.9), M(0.07), M(1.40)],
+  ["Claude Haiku 5.5", "Anthropic", 8.4, M(59.9), M(36.4), M(34.9), M(28.9), M(48.4), M(43.8), N, M(59.4), M(41.2), M(0.10, "*"), M(0.50, "*")],
+  ["Grok 4.7", "SpaceXAI", 8.3, M(71.0, "†"), M(28.8), M(28.7), M(28.9), M(48.6), M(29.5), N, M(62.1), M(35.1), M(2.00), M(6.00)],
+  ["Hy4", "Tencent", 8.3, M(74.9, "†"), M(39.4), M(31.4), N, N, N, N, N, M(33.6, "*"), M(0.42, "*"), M(1.25, "*")],
+  ["MiMo-V2.6-Pro", "Xiaomi", 8.2, M(71.9, "†"), M(31.3), M(24.0), N, N, N, N, N, M(32.2), M(0.44), M(0.87)],
+  ["Muse Spark 1.3", "Meta", 8.1, M(75.4, "†"), M(24.8), M(23.1), N, M(41.9), M(25.8), N, N, N, M(1.25), M(4.25)],
+  ["Muse Ember", "Meta", 8.1, N, M(39.4), M(27.2), N, N, N, N, M(56.0), N, M(0.10), M(0.50)],
+  ["MiniMax M3.1 Flash", "MiniMax", 8.0, M(73.7, "†"), M(25.3), M(20.8), N, N, N, M(0.7), N, N, M(0.15), M(0.60)],
+  ["Inkling 2 Small", "Thinking Machines", 8.0, M(72.1, "†"), M(12.6), M(25.4), M(22.6), N, M(25.1), N, M(61.9), N, M(0.30), M(1.00), true],
+  ["GLM 5.3 Flash", "Zhipu AI", 7.9, M(64.3), M(37.4), M(17.6), M(14.9), M(36.8, "§"), M(18.1), M(0.7), M(55.3), M(35.1), M(0.15), M(0.50)],
+  ["Step 5 Preview", "StepFun", 7.8, M(67.7, "†"), M(31.8), M(12.0), N, N, N, N, N, M(34.4), M(1.00), M(2.70)],
 ].map((r, i) => ({
   rank: i + 1, name: r[0], vendor: r[1], rate: r[2],
-  deep: r[3], tb4: r[4], fc2: r[5], fcod: r[6], curs: r[7], fswe: r[8], atls: r[9], mcpp: r[10], in: r[11], out: r[12], isNew: !!r[13],
+  deep: r[3], tb4: r[4], fc2: r[5], fcod: r[6], curs: r[7], fswe: r[8], sweep: r[9], atls: r[10], mcpp: r[11], in: r[12], out: r[13], isNew: !!r[14],
 }));
 
 const tbody = document.querySelector("#ranking tbody");
@@ -248,7 +253,7 @@ function render(list) {
     <td class="rank">${r.rank}</td>
     <td class="l model">${esc(r.name)}${r.isNew ? '<span class="badge">new</span>' : ""}<span class="vendor">${esc(r.vendor)}</span></td>
     <td><div class="rate"><span class="b"><i style="width:${Math.max(0, (r.rate - 7) / 3) * 100}%"></i></span><strong>${r.rate.toFixed(1)}</strong></div></td>
-    ${cell(r.deep)}${cell(r.tb4)}${cell(r.fc2)}${cell(r.fcod)}${cell(r.curs)}${cell(r.fswe)}${cell(r.atls)}${cell(r.mcpp)}${cell(r.in, true)}${cell(r.out, true)}
+    ${cell(r.deep)}${cell(r.tb4)}${cell(r.fc2)}${cell(r.fcod)}${cell(r.curs)}${cell(r.fswe)}${cell(r.sweep)}${cell(r.atls)}${cell(r.mcpp)}${cell(r.in, true)}${cell(r.out, true)}
   </tr>`).join("");
 }
 
